@@ -14,23 +14,61 @@
           height: 600px;
           margin: 0 auto;
     }
-    
+    #ar-button {
+    background-image: url(asset/ariconewhite.png);
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    background-position: 12px 50%;
+    background-color: #6ac96f;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    bottom: 35px;
+    padding: 0px 16px 0px 45px;
+    font-family: Roboto Regular, Helvetica Neue, sans-serif;
+    font-size: 16px;
+    color:#ffffff;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 18px;
+    border: 1px solid #000000;
+  }
+    #ar-button:active {
+    background-color: #E8EAED;
+  }
 
-    
-    
+  #ar-button:focus {
+    outline: none;
+  }
+
+  #ar-button:focus-visible {
+    outline: 1px solid #4285f4;
+  }
+
+    model-viewer > #ar-prompt {
+    position: absolute;
+    left: 50%;
+    bottom: 175px;
+    animation: elongate 2s infinite ease-in-out alternate;
+    display: none;
+  }
+
+  model-viewer[ar-status="session-started"] > #ar-prompt {
+    display: block;
+  }
+
+  model-viewer > #ar-prompt > img {
+    animation: circle 4s linear infinite;
+  }
   </style>
 
 <body>
-  <model-viewer src="asset/IVX Station AR1 JAE.glb" camera-controls ar environment-image="asset/office desk 2k.hdr" exposure="1.4" shadow-intensity="5.0" shadow-softness="1" auto-rotate>
-  
-
-    <div class="progress-bar hide" slot="progress-bar">
-        <div class="update-bar"></div>
-    </div>
-    
-
-</model-viewer>
-
+  <model-viewer src="asset/IVX Station AR1 JAE.glb" ar ar-modes="webxr scene-viewer quick-look" ios-src="asset/IVX Surfaces4-Single.usdz" shadow-intensity="3.2" environment-image="asset/workshop.hdr" ar-scale="fixed" ar ar-placement="floor" exposure=".65" shadow-softness="1" camera-controls ar autoplay auto-rotate="">
+    <button slot="ar-button" id="ar-button">
+    View in your space
+  </button>
+  </model-viewer>
   <center><p><b>AR Viewer Test - Bally Design</b></p>
   
 
